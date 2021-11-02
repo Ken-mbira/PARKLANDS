@@ -14,6 +14,7 @@ import { NewReservationComponent } from './new-reservation/new-reservation.compo
 import { NewLotComponent } from './new-lot/new-lot.component';
 import { RegisterChoiceComponent } from './register-choice/register-choice.component';
 import { ProfileComponent } from './profile/profile.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ProfileComponent } from './profile/profile.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
