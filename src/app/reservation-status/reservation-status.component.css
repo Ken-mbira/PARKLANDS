@@ -9,7 +9,9 @@
 .card {
     width: 100%;
     height: 40vh;
-    background-color: royalblue;
+    background-image: url(src/app/statics/freestocks-mw6Onwg4frY-unsplash.jpg);
+    background-position: center;
+    background-size: cover;
     border-radius: 30px;
 }
 
