@@ -13,6 +13,7 @@ import { LandingComponent } from './landing/landing.component';
 import { NewReservationComponent } from './new-reservation/new-reservation.component';
 import { NewLotComponent } from './new-lot/new-lot.component';
 import { RegisterChoiceComponent } from './register-choice/register-choice.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RegisterChoiceComponent } from './register-choice/register-choice.compo
     LandingComponent,
     NewReservationComponent,
     NewLotComponent,
-    RegisterChoiceComponent
+    RegisterChoiceComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
