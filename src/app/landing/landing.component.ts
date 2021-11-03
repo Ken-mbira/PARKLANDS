@@ -22,9 +22,10 @@ export class LandingComponent implements OnInit {
       let holder:any = user
       this.user.username = holder['user']['username']
       this.user.email = holder['user']['email']
-      this.user.group = holder['user']['groups']
+      this.user.group = holder['user']['groups'][0]['name']
       this.user.profile_pic = holder['user']['profile_pic']
-      console.log(this.user)
+    },error => {
+      console.log(error)
     })
 
     this.userService.updateUser(this.user)
