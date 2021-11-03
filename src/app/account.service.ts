@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 import {
@@ -50,6 +50,13 @@ export class AccountService {
         duration: 3000
       });
     })
+  }
+
+  getUser(){
+    let headers = new HttpHeaders({
+      'Authorization':`Token ${sessionStorage.getItem('token')}`
+    })
+    return this.http.get(`${environment.BASE_URL}user`,{'headers':headers})
   }
 
   constructor(private http:HttpClient,private _snackBar:MatSnackBar,private route:Router) { }
