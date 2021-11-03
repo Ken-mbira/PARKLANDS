@@ -18,8 +18,8 @@ const routes: Routes = [
     pathMatch:'full'
   },
   {
-    path:'register',
-    component:RegisterComponent
+    path:'registerChoice',
+    component:RegisterChoiceComponent
   },
   {
     path:'login',
