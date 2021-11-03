@@ -35,5 +35,22 @@ export class AccountService {
     this.route.navigate(['login'])
   }
 
+  register(credentials:any){
+    this.http.post(`${environment.BASE_URL}register`,credentials).subscribe(response=>{
+      this._snackBar.open('Your new account was created successfully!', 'Login', {
+        horizontalPosition: "center",
+        verticalPosition: "top",
+        duration: 3000
+      });
+      this.route.navigate(['login']);
+    },error=>{
+      this._snackBar.open('There was a problem creating your account', 'Try again', {
+        horizontalPosition: "center",
+        verticalPosition: "top",
+        duration: 3000
+      });
+    })
+  }
+
   constructor(private http:HttpClient,private _snackBar:MatSnackBar,private route:Router) { }
 }

@@ -22,6 +22,10 @@ const routes: Routes = [
     component:RegisterChoiceComponent
   },
   {
+    path:'register',
+    component:RegisterComponent
+  },
+  {
     path:'login',
     component:LoginComponent
   },
