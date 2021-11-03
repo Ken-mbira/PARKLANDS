@@ -8,6 +8,7 @@ body {
 }
 
 .info {
+    margin-top: 40px;
     margin-left: 100px;
     border: 2px solid black;
     width: 10%;
@@ -15,41 +16,55 @@ body {
     border-radius: 50px;
     margin-left: 10%;
     background-color: #29274C;
-    padding: 10px;
     margin-bottom: 20px;
 }
 
 h4 {
     color: white;
+    text-align: center;
 }
 
 .row {
     border: 2px solid black;
     width: 70%;
     margin-left: 10%;
-    border-radius: 50px;
+    border-radius: 20px;
     height: 70vh;
 }
 
 .col {
-    width: 70%;
+    width: 50%;
+    border-radius: 50px;
 }
 
-input {
-    margin-left: 100px;
+.col-1 {
+    width: 50%;
+    border-radius: 20px;
+    background-image: url(src/app/statics/raban-haaijk-wftNpcjCHT4-unsplash.jpg);
+    background-position: center;
+    background-size: cover;
 }
 
 form {
     margin-top: 30px;
 }
 
+label {
+    padding-right: 30px;
+}
+
 input {
-    width: 50%;
+    width: fit-content;
     height: 5vh;
     background-color: transparent;
     border: 2px solid rgb(0, 0, 0);
     margin-bottom: 20px;
     border-radius: 20px;
+    padding-left: 10px;
+}
+
+::placeholder {
+    color: black;
 }
 
 button {
@@ -57,7 +72,6 @@ button {
     height: 5vh;
     background-color: transparent;
     margin-left: 100px;
-    border: 2px solid purple;
     border-radius: 20px;
     transition: 0.25s;
     cursor: pointer;

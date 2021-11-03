@@ -32,6 +32,11 @@
 
 .col-1 {
     margin-left: 20px;
+    width: 50%;
+}
+
+.row {
+    width: 100%;
 }
 
 button {
