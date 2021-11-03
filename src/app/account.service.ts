@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 import {
   MatSnackBar,
@@ -23,10 +24,16 @@ export class AccountService {
         verticalPosition: "top",
         duration: 3000
       });
+      this.route.navigate(['landing']);
     },error=>{
       this._snackBar.open("The provided credentials are wrong","try again",{duration:3000})
     })
   }
 
-  constructor(private http:HttpClient,private _snackBar:MatSnackBar) { }
+  logout(){
+    sessionStorage.removeItem("token")
+    this.route.navigate(['login'])
+  }
+
+  constructor(private http:HttpClient,private _snackBar:MatSnackBar,private route:Router) { }
 }
