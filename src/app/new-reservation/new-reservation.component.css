@@ -18,80 +18,13 @@
         }
         
          ::placeholder {
-            color: #fff
+            color: rgb(0, 0, 0)
         }
         
-        #input #input-group {
-            width: 300px;
-            margin: 5px;
-            border-top: none;
-            border-left: none;
-            border-right: none;
-            outline: none;
-            background: transparent;
-            color: #fff
-        }
-        
-        #input2 #input-group {
-            width: 195px;
-            margin: 5px;
-            border-top: none;
-            border-left: none;
-            border-right: none;
-            outline: none;
-            background: transparent;
-            color: #fff
-        }
-        
-        #input3 #input-group {
-            margin-left: 50px;
-        }
-        
-        #input4 #input-group {
-            width: 300px;
-            margin: 5px;
-            border-top: none;
-            border-left: none;
-            border-right: none;
-            outline: none;
-            background: transparent;
-            color: #fff
-        }
-        
-        #input4 #input-group1 {
-            width: 615px;
-            margin: 5px;
-            border-top: none;
-            border-left: none;
-            border-right: none;
-            outline: none;
-            background: transparent;
-            color: #fff
-        }
-        
-        #input5 h3 {
-            width: 220px;
-            padding: 5px;
-        }
-        
-        #input6 #input-group {
-            width: 300px;
-            margin: 5px;
-            border-top: none;
-            border-left: none;
-            border-right: none;
-            outline: none;
-            background: transparent;
-            color: #fff
-        }
-        
-        #input6 #input-group1 {
-            width: 615px;
-            margin: 5px;
-            border-top: none;
-            border-left: none;
-            border-right: none;
-            outline: none;
-            background: transparent;
-            color: #fff
+        input {
+            border: 2px solid black;
+            background-color: white;
+            border-radius: 80px;
+            margin-bottom: 50px;
+            margin-right: 10px;
         }
