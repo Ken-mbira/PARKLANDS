@@ -2,15 +2,26 @@
     <div class="row">
         <app-profile class="col-md-4"></app-profile>
         <div class="col-md-8">
-            <div class="w-100 border shadow-lg p-2 d-flex mb-2 mt-2 justify-content-center">
+            <div class="w-100 border shadow-lg p-2 d-flex mb-2 mt-2 justify-content-center" routerLink="/new_lot">
                 <p>Add parking lot</p>
             </div>
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <div *ngIf="parkings">
+                <div class="card mb-3" *ngFor="let parking of parkings">
+                    <div class="card-body">
+                        <h5 class="card-title">{{parking.name}}</h5>
+                        <div class="row">
+                            <div class="col-4"><img class="img-fluid" src="{{cloudinaryUrl}}{{parking.image}}"></div>
+                            <div class="col-6">
+                                <p>Rows: {{parking.rows}}</p>
+                                <p>Columns: {{parking.columns}}</p>
+                            </div>
+                        </div>
+                        <p class="card-text"><small class="text-muted">Located in {{parking.location}}</small></p>
+                    </div>
                 </div>
+            </div>
+            <div *ngIf="!parkings">
+                <p>You have no parking spaces yet!</p>
             </div>
         </div>
     </div>
