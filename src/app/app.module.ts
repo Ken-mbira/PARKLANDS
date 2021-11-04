@@ -18,6 +18,8 @@ import { RegisterChoiceComponent } from './register-choice/register-choice.compo
 import { ProfileComponent } from './profile/profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSelectModule} from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     BrowserAnimationsModule,
     HttpClientModule,
     MatSnackBarModule,
-    FormsModule
+    FormsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

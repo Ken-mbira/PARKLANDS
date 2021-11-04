@@ -1,44 +1,41 @@
-<div class="info">
-    <h4>Add parking space</h4>
-</div>
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col">
-            <img src="/src/app/statics/raban-haaijk-wftNpcjCHT4-unsplash.jpg" alt="">
-            <form action="">
-                <div class="form-group">
-
-                    <input type="text" placeholder="name">
+        <div class="col-md-6 ">
+            <h3>Register your very own parking lot</h3>
+            <form class="border shadow p-3 m-2">
+                <div class="mb-2">
+                    <label for="name" class="form-label">Enter the name of your location</label>
+                    <input class="form-control" id="name" name="name" type="text">
                 </div>
-                <br>
-                <div class="form-group">
-
-                    <input type="text" placeholder="location">
-
+                <div class="mb-2">
+                    <label for="rows" class="form-label">Enter the number of rows in your lot</label>
+                    <input class="form-control" id="row" name="row" type="number">
                 </div>
-                <br>
-                <div class="form-group">
-
-                    <input type="text" placeholder="Row">
+                <div class="mb-2">
+                    <label for="column" class="form-label">Enter the number of columns in your lot</label>
+                    <input class="form-control" id="column" name="column" type="number">
                 </div>
-                <br>
-                <div class="form-group">
-
-                    <input type="text" placeholder="Column">
+                <mat-form-field appearance="fill">
+                    <mat-label>Choose the location of your parking lot</mat-label>
+                    <mat-select name="food">
+                        <mat-option>Location</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div class="mb-3">
+                    <label class="form-label" for="image">Enter a picture to help people identify your location</label>
+                    <input class="form-control" id="image" type="file">
                 </div>
-                <br>
-                <div class="form-group">
-
-                    <input type="text" placeholder="Price">
+                <div class="mb-2">
+                    <label for="min-price" class="form-label">Enter the base price for a user using your lot</label>
+                    <input class="form-control" id="min-price" name="min-price" type="number" min="0" max="1000" placeholder="maximum is 1000">
                 </div>
-                <br>
-                <button type="submit">Add</button>
-
+                <div class="mb-3">
+                    <button class="btn btn-outline-primary" type="submit">Register location</button>
+                </div>
             </form>
         </div>
-        <div class="col-1">
-
+        <div class="d-none d-md-block col-md-6">
+            <img class="img-fluid" src="../../assets/parklands1.jpg">
         </div>
-
     </div>
 </div>
