@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Parking } from '../parking';
 import { AccountService } from '../account.service';
+import { Reservation } from '../reservation';
 
 @Component({
   selector: 'app-new-reservation',
@@ -10,8 +11,9 @@ import { AccountService } from '../account.service';
 })
 export class NewReservationComponent implements OnInit {
   
+  reservation = new Reservation("","","","","","","")
   chosenlocation:any;
-  chosenParking:any;
+  driverOptions:any;
   locations:any;
   parkings: Parking[] = []
   holder:any;
@@ -23,7 +25,12 @@ export class NewReservationComponent implements OnInit {
         let parking = new Parking(this.holder[index]['name'],this.holder[index]['rows'],this.holder[index]['columns'],this.holder[index]['location']['name'],this.holder[index]['image'],this.holder[index]['min_price'],this.holder[index]['rate'],this.holder[index]['drivers'],this.holder[index]['id'])
         this.parkings.push(parking)
       }
-      console.log(this.parkings)
+    })
+  }
+
+  getDriverOptions(pk:any){
+    this.accountService.getDriverOptions(pk).subscribe(response => {
+      this.driverOptions = response['success']
     })
   }
 

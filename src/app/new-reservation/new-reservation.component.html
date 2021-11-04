@@ -6,20 +6,20 @@
             <div class="row g-3">
                 <h3>Reservation Details</h3>
                 <div class="col-md-6">
-                    <input type="time" class="form-control" placeholder="Start Time">
+                    <input type="time" class="form-control" placeholder="Start Time" name="start_time" [(ngModel)]="reservation.start_time">
                 </div>
                 <div class="col-md-6">
-                    <input type="time" class="form-control" placeholder="End time">
+                    <input type="time" class="form-control" placeholder="End time" name="end_time" [(ngModel)]="reservation.end_time">
                 </div>
                 <h3>Personal Details</h3>
                 <div class="col-md-4">
-                    <input type="text" class="form-control" placeholder="Car Plate">
+                    <input type="text" class="form-control" placeholder="Car Plate" name="plate" [(ngModel)]="reservation.car_plate">
                 </div>
                 <div class="col-md-4">
-                    <input type="text" class="form-control" placeholder="Car Plate Number">
+                    <input type="text" class="form-control" placeholder="Car Plate Number" name="plate_number" [(ngModel)]="reservation.car_plate_number">
                 </div>
                 <div class="col-md-4">
-                    <input type="text" class="form-control" placeholder="Car Brand">
+                    <input type="text" class="form-control" placeholder="Car Brand" name="car_brand" [(ngModel)]="reservation.car_brand">
                 </div>
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
@@ -29,7 +29,7 @@
                 <h3>Parking Location details</h3>
                 <div class="col-md-4">
                     <mat-form-field appearance="fill">
-                        <mat-label>Choose the location of your parking lot</mat-label>
+                        <mat-label>Choose the location</mat-label>
                         <mat-select [(ngModel)]="chosenlocation" (ngModelChange)="getOptions($event)" name="location">
                             <mat-option *ngFor="let location of locations" [value]="location['id']">{{location['name']}}</mat-option>
                         </mat-select>
@@ -37,14 +37,19 @@
                 </div>
                 <div class="col-md-4">
                     <mat-form-field appearance="fill">
-                        <mat-label>Choose the location of your parking lot</mat-label>
-                        <mat-select name="location">
+                        <mat-label>Choose your parking lot</mat-label>
+                        <mat-select [ngModel]="reservation.parking" (ngModelChange)="getDriverOptions($event)" name="parking">
                             <mat-option *ngFor="let parking of parkings" [value]="parking['id']">{{parking.name}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
                 <div class="col-md-4">
-                    <input type="text" class="form-control" placeholder="Choose Driver Optional">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Choose driver</mat-label>
+                        <mat-select [(ngModel)]="reservation.driver" name="location">
+                            <mat-option *ngFor="let driver of driverOptions" [value]="driver['id']">{{driver['owner']['username']}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
                 </div>
             </div>
             <div class="m-3">
