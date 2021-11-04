@@ -82,6 +82,13 @@ export class AccountService {
     })
   }
 
+  getParkingOptions(pk){
+    let headers = new HttpHeaders({
+    'Authorization':`Token ${sessionStorage.getItem('token')}`
+  })
+  return this.http.get(`${environment.BASE_URL}parking/options/${pk}`,{'headers':headers})
+  }
+
   myParking(){
     let headers = new HttpHeaders({
       'Authorization':`Token ${sessionStorage.getItem('token')}`

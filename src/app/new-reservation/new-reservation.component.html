@@ -1,74 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parkland's Booking Form</title>
-    <link rel="stylesheet" href="new-reservation.component.css">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
-</head>
-
-<body>
-    <div class="container">
-        <!--container-->
-
-        <form class="form-group">
-            <!--form-->
-            <h1 class="text-center">Parkland's Booking Form</h1>
-
-            <div id="form">
-                <!--form-->
-                <h3 class="text-white" style="width: 23%;">Reservation Details</h3>
-
-                <div id="input">
-                    <!--input-->
-
-                    <input type="text" id="input-group" placeholder="Date">
-                    <input type="text" id="input-group" placeholder="Start Time">
-                    <input type="text" id="input-group" placeholder="End time">
-
-
+<div class="container-fluid">
+    <h1 class="text-center">Parkland's Booking Form</h1>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <form class="col-md-8">
+            <div class="row g-3">
+                <h3>Reservation Details</h3>
+                <div class="col-md-6">
+                    <input type="time" class="form-control" placeholder="Start Time">
                 </div>
-
-                <div id="input5">
-                    <!--input5-->
-                    <h3 class="text-white" style="width: 20%;">Personal Details</h3>
+                <div class="col-md-6">
+                    <input type="time" class="form-control" placeholder="End time">
                 </div>
-                <!--input5-->
-
-                <div id="input6">
-                    <!--input6-->
-                    <input type="text" id="input-group" placeholder="Car Number">
-                    <input type="text" id="input-group" placeholder="Car Brand">
-                    <input type="text" id="input-group1" placeholder="Select Location">
-                    <input type="text" id="input-group1" placeholder="Select Parking Location">
-                    <input type="text" id="input-group1" placeholder="Phone Number">
-                    <input type="text" id="input-group1" placeholder="Choose Driver Optional">
-
+                <h3>Personal Details</h3>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" placeholder="Car Plate">
                 </div>
-                <!--input6-->
-                <button type="submit" class="btn btn-warning text-white" style="text-align: centers;margin-left: 38%;">Make Reservation</button>
-
+                <div class="col-md-4">
+                    <input type="text" class="form-control" placeholder="Car Plate Number">
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" placeholder="Car Brand">
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <input type="text" maxlength="10" class="form-control" placeholder="Your Phone Number">
+                </div>
+                <div class="col-md-4"></div>
+                <h3>Parking Location details</h3>
+                <div class="col-md-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Choose the location of your parking lot</mat-label>
+                        <mat-select [(ngModel)]="chosenlocation" (ngModelChange)="getOptions($event)" name="location">
+                            <mat-option *ngFor="let location of locations" [value]="location['id']">{{location['name']}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Choose the location of your parking lot</mat-label>
+                        <mat-select name="location">
+                            <mat-option *ngFor="let parking of parkings" [value]="parking.name">{{parking.name}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" placeholder="Choose Driver Optional">
+                </div>
             </div>
-            <!--form-->
-
+            <div class="m-3">
+                <button type="submit" class="btn btn-warning text-white" style="text-align: centers;margin-left: 38%;">Make Reservation</button>
+            </div>
         </form>
-        <!--form-->
-
+        <div class="col-md-2"></div>
     </div>
-    <!--container-->
-</body>
-
-</html>
+</div>
