@@ -66,5 +66,21 @@ export class AccountService {
     return this.http.get(`${environment.BASE_URL}parking/locations/`,{'headers':headers})
   }
 
+  registerLocation(credentials:any){
+    let headers = new HttpHeaders({
+      'Authorization':`Token ${sessionStorage.getItem('token')}`
+    })
+    this.http.post(`${environment.BASE_URL}parking/create/`,credentials,{'headers':headers}).subscribe(response=>{
+      this._snackBar.open('Your new parking lot was registered successfully!', 'Great', {
+        horizontalPosition: "center",
+        verticalPosition: "top",
+        duration: 3000
+      });
+      this.route.navigate(['landing']);
+    },error=>{
+      console.log(error)
+    })
+  }
+
   constructor(private http:HttpClient,private _snackBar:MatSnackBar,private route:Router) { }
 }
