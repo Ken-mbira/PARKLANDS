@@ -82,5 +82,12 @@ export class AccountService {
     })
   }
 
+  myParking(){
+    let headers = new HttpHeaders({
+      'Authorization':`Token ${sessionStorage.getItem('token')}`
+    })
+    return this.http.get(`${environment.BASE_URL}parking/my_parking/`,{'headers':headers})
+  }
+
   constructor(private http:HttpClient,private _snackBar:MatSnackBar,private route:Router) { }
 }
