@@ -9,7 +9,7 @@ import { Parking } from '../parking';
   styleUrls: ['./new-lot.component.css']
 })
 export class NewLotComponent implements OnInit {
-  parking = new Parking("","","","","","","")
+  parking = new Parking("","","","","","","","","")
   locations: any;
 
   onImageChange(event:any){

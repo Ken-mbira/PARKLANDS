@@ -21,7 +21,7 @@ export class LotStatusComponent implements OnInit {
     this.accountService.myParking().subscribe(response=>{
       this.holder = response['success']
       for (let index = 0; index < this.holder.length; index++) {
-        let parking = new Parking(this.holder[index]['name'],this.holder[index]['rows'],this.holder[index]['columns'],this.holder[index]['location']['name'],this.holder[index]['image'],this.holder[index]['min_price'],this.holder[index]['rate'])
+        let parking = new Parking(this.holder[index]['name'],this.holder[index]['rows'],this.holder[index]['columns'],this.holder[index]['location']['name'],this.holder[index]['image'],this.holder[index]['min_price'],this.holder[index]['rate'],this.holder[index]['drivers'],this.holder[index]['id'])
         this.parkings.push(parking)
       }
 
