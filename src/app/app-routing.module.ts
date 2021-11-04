@@ -18,6 +18,10 @@ const routes: Routes = [
     pathMatch:'full'
   },
   {
+    path:'registerChoice',
+    component:RegisterChoiceComponent
+  },
+  {
     path:'register',
     component:RegisterComponent
   },

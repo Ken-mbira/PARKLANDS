@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { User } from '../user';
+import { UserService } from '../user.service';
+import { AccountService } from '../account.service';
 
 @Component({
   selector: 'app-landing',
@@ -7,9 +12,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
-  constructor() { }
+  user = new User("","","","","");
+
+  redirect(route:string){
+    this.route.navigate([route]);
+
+  }
+
+  constructor(private userService:UserService,private accountService:AccountService,private route:Router) { }
 
   ngOnInit(): void {
+    this.userService.currentUser.subscribe(user => this.user = user)
+
+    this.accountService.getUser().subscribe(user => {
+      let holder:any = user
+      this.user.username = holder['user']['username']
+      this.user.email = holder['user']['email']
+      this.user.group = holder['user']['groups'][0]['name']
+      this.user.profile_pic = holder['user']['profile_pic']
+    },error => {
+      console.log(error)
+    })
+
+    this.userService.updateUser(this.user)
   }
 
 }
