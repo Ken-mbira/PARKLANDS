@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-6 ">
             <h3>Register your very own parking lot</h3>
-            <form class="border shadow p-3 m-2">
+            <form #newLotForm="ngForm" class="border shadow p-3 m-2">
                 <div class="mb-2">
                     <label for="name" class="form-label">Enter the name of your location</label>
                     <input class="form-control" id="name" name="name" type="text">
@@ -17,8 +17,8 @@
                 </div>
                 <mat-form-field appearance="fill">
                     <mat-label>Choose the location of your parking lot</mat-label>
-                    <mat-select name="food">
-                        <mat-option>Location</mat-option>
+                    <mat-select [(ngModel)]="parking.location" name="location">
+                        <mat-option *ngFor="let location of locations" [value]="location['id']">{{location['name']}}</mat-option>
                     </mat-select>
                 </mat-form-field>
                 <div class="mb-3">
@@ -28,6 +28,10 @@
                 <div class="mb-2">
                     <label for="min-price" class="form-label">Enter the base price for a user using your lot</label>
                     <input class="form-control" id="min-price" name="min-price" type="number" min="0" max="1000" placeholder="maximum is 1000">
+                </div>
+                <div class="mb-2">
+                    <label for="rate" class="form-label">Enter the rate per hour for using your lot</label>
+                    <input class="form-control" id="rate" name="rate" type="number" min="0" max="1000" placeholder="maximum is 1000">
                 </div>
                 <div class="mb-3">
                     <button class="btn btn-outline-primary" type="submit">Register location</button>
