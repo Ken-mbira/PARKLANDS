@@ -14,8 +14,7 @@ import { ReservationStatusComponent } from './reservation-status/reservation-sta
 const routes: Routes = [
   {
     path:'',
-    redirectTo:'login',
-    pathMatch:'full'
+    component:LoginComponent
   },
   {
     path:'registerChoice',
@@ -24,10 +23,6 @@ const routes: Routes = [
   {
     path:'register',
     component:RegisterComponent
-  },
-  {
-    path:'login',
-    component:LoginComponent
   },
   {
     path:'landing',
