@@ -103,5 +103,21 @@ export class AccountService {
     return this.http.get(`${environment.BASE_URL}parking/my_parking/`,{'headers':headers})
   }
 
+  makeReservation(data:any){
+    let headers = new HttpHeaders({
+      'Authorization':`Token ${sessionStorage.getItem('token')}`
+    })
+    this.http.post(`${environment.BASE_URL}parking/reservation/`,data,{'headers':headers}).subscribe(response=>{
+      this._snackBar.open('Your new reservation was registered successfully!', 'Great', {
+        horizontalPosition: "center",
+        verticalPosition: "top",
+        duration: 3000
+      });
+      this.route.navigate(['reservation_status']);
+    },error=>{
+      console.log(error)
+    })
+  }
+
   constructor(private http:HttpClient,private _snackBar:MatSnackBar,private route:Router) { }
 }

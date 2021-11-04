@@ -2,7 +2,7 @@
     <h1 class="text-center">Parkland's Booking Form</h1>
     <div class="row">
         <div class="col-md-2"></div>
-        <form class="col-md-8">
+        <form #reservationForm="ngForm" (ngSubmit)="makeReservation()" class="col-md-8">
             <div class="row g-3">
                 <h3>Reservation Details</h3>
                 <div class="col-md-6">
@@ -38,7 +38,7 @@
                 <div class="col-md-4">
                     <mat-form-field appearance="fill">
                         <mat-label>Choose your parking lot</mat-label>
-                        <mat-select [ngModel]="reservation.parking" (ngModelChange)="getDriverOptions($event)" name="parking">
+                        <mat-select [(ngModel)]="reservation.parking" (ngModelChange)="getDriverOptions($event)" name="parking">
                             <mat-option *ngFor="let parking of parkings" [value]="parking['id']">{{parking.name}}</mat-option>
                         </mat-select>
                     </mat-form-field>
@@ -47,7 +47,7 @@
                     <mat-form-field appearance="fill">
                         <mat-label>Choose driver</mat-label>
                         <mat-select [(ngModel)]="reservation.driver" name="location">
-                            <mat-option *ngFor="let driver of driverOptions" [value]="driver['id']">{{driver['owner']['username']}}</mat-option>
+                            <mat-option *ngFor="let driver of driverOptions" [value]="driver['owner']['id']">{{driver['owner']['username']}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>

@@ -13,6 +13,7 @@ export class NewReservationComponent implements OnInit {
   
   reservation = new Reservation("","","","","","","")
   chosenlocation:any;
+  chosenParking:any;
   driverOptions:any;
   locations:any;
   parkings: Parking[] = []
@@ -32,6 +33,19 @@ export class NewReservationComponent implements OnInit {
     this.accountService.getDriverOptions(pk).subscribe(response => {
       this.driverOptions = response['success']
     })
+  }
+
+  makeReservation(){
+    let form = new FormData();
+    form.append('start_time',this.reservation.start_time)
+    form.append('end_time',this.reservation.end_time)
+    form.append('car_plate',this.reservation.car_plate)
+    form.append('car_plate_number',this.reservation.car_plate_number)
+    form.append('car_brand',this.reservation.car_brand)
+    form.append('driver',this.reservation.driver)
+    form.append('parking',this.reservation.parking)
+
+    this.accountService.makeReservation(form)
   }
 
   constructor(private accountService:AccountService) { }
