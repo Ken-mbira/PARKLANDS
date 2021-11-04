@@ -5,13 +5,13 @@
                 <p>Welcome to PARKLANDS, your secure, reliable parking option</p>
             </div>
             <div class="mb-3">
-                <button class="btn btn-outline-primary" *ngIf="user.group == 'car_owner'">Make reservations</button>
+                <button class="btn btn-outline-primary" *ngIf="user.group == 'car_owner'" (click)="redirect('reservation_status')">Make reservations</button>
             </div>
             <div class="mb-3">
-                <button class="btn btn-outline-primary" *ngIf="user.group == 'parking_owner'">Check on lots</button>
+                <button class="btn btn-outline-primary" *ngIf="user.group == 'parking_owner'" (click)="redirect('lot_status')">Check on lots</button>
             </div>
             <div class="mb-3">
-                <button class="btn btn-outline-primary" *ngIf="user.group == 'driver'">Check on calls</button>
+                <button class="btn btn-outline-primary" *ngIf="user.group == 'driver'" (click)="redirect('driver_status')">Check on calls</button>
             </div>
         </div>
     </div>
